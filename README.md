@@ -1,6 +1,10 @@
 # logindetect
 Logindetect is a simple script for any Debian based Server that scans that auth.log file for 3 different suspicous activities and places them in /var/log/sec.log but with the original line numbers for better readability. The first is any sudo or su activity in the log file, this is useful to take a look over everytime it happens. The second is any ssh sessions that are spawned on the host machine. Lastly is any admin ssh session started between 12AM and 6AM and grabs the IP adress of the session starter. This script works very well with cron using ```crontab -e``` as root.
 
+## Admin Name 
+The admin name is by default admin in the third awk statement in the script, feel free to change that to whatever you would like. 
+
+
 ## Crontab
 ```0 6 * * * {DIRECTORYSTRUCTURE}/logindetect.sh```
 This runs the script everyday at 6 AM for the admin to check once they start work. 
